@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .force-light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 6%;
+    --primary: 240 10% 8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 94%;
+    --secondary-foreground: 240 10% 8%;
+    --muted: 240 6% 94%;
+    --muted-foreground: 240 4% 40%;
+    --accent: 240 6% 92%;
+    --accent-foreground: 240 10% 8%;
+    --destructive: 0 78% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 86%;
+    --input: 240 6% 82%;
+    --ring: 262 83% 70%;
+    --radius: 0.9rem;
+    --stage: 240 5% 90%;
+  }
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 240 6% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 6% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 240 5% 13%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 5% 13%;
+    --muted-foreground: 240 5% 66%;
+    --accent: 240 5% 16%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 62%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5% 20%;
+    --input: 240 5% 26%;
+    --ring: 262 90% 82%;
+    --stage: 240 6% 5%;
+  }
+  * { @apply border-border; -webkit-tap-highlight-color: transparent; }
+  html, body, #root { height: 100%; }
+  @supports (height: 100dvh) { html, body, #root { height: 100dvh; } }
+  body { @apply bg-[hsl(var(--stage))] text-foreground font-sans antialiased; overflow: hidden; }
+}
+
+@layer utilities {
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .safe-top { padding-top: max(env(safe-area-inset-top, 0px), 0px); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
