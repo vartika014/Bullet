@@ -1,0 +1,65 @@
+import animate from "tailwindcss-animate";
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ["class"],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        script: ["Caveat", "cursive"],
+        serif: ["Playfair Display", "Georgia", "serif"],
+        marker: ["Permanent Marker", "Impact", "sans-serif"],
+        display: ["Bebas Neue", "Impact", "sans-serif"],
+      },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+        secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
+        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+        accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
+        destructive: { DEFAULT: "hsl(var(--destructive))", foreground: "hsl(var(--destructive-foreground))" },
+        card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+        popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
+        brand: { orange: "#f5842a", pink: "#e91e8c", lilac: "#c4b5fd", gold: "#e8a534" },
+      },
+      backgroundImage: {
+        "brand-gradient": "linear-gradient(90deg,#f5842a 0%,#ee5a4f 50%,#e91e8c 100%)",
+      },
+      borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
+      keyframes: {
+        marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
+        "marquee-rev": { from: { transform: "translateX(-50%)" }, to: { transform: "translateX(0)" } },
+        shake: {
+          "0%,100%": { transform: "translateX(0)" },
+          "20%,60%": { transform: "translateX(-6px)" },
+          "40%,80%": { transform: "translateX(6px)" },
+        },
+        kenburns: { from: { transform: "scale(1.02)" }, to: { transform: "scale(1.14) translateY(-1.5%)" } },
+        progress: { from: { transform: "scaleX(0)" }, to: { transform: "scaleX(1)" } },
+        nudge: { "0%,100%": { transform: "translateY(0)", opacity: ".7" }, "50%": { transform: "translateY(6px)", opacity: "1" } },
+        flicker: { "0%,100%": { opacity: ".55" }, "8%": { opacity: ".2" }, "12%": { opacity: ".7" }, "50%": { opacity: ".45" }, "54%": { opacity: ".15" } },
+        drift: { from: { transform: "translateY(0) translateX(0)", opacity: "0" }, "20%": { opacity: ".7" }, to: { transform: "translateY(-120px) translateX(14px)", opacity: "0" } },
+        pop: { "0%": { transform: "scale(.4)", opacity: "0" }, "70%": { transform: "scale(1.12)" }, "100%": { transform: "scale(1)", opacity: "1" } },
+        "screen-in": { from: { opacity: "0", transform: "translateY(14px)" }, to: { opacity: "1", transform: "translateY(0)" } },
+        "toast-in": { from: { opacity: "0", transform: "translateY(-10px) scale(.96)" }, to: { opacity: "1", transform: "none" } },
+      },
+      animation: {
+        "marquee-slow": "marquee 60s linear infinite",
+        "marquee-slow-rev": "marquee-rev 70s linear infinite",
+        shake: "shake .4s ease-in-out",
+        kenburns: "kenburns 14s ease-in-out infinite alternate",
+        nudge: "nudge 1.4s ease-in-out infinite",
+        flicker: "flicker 5s linear infinite",
+        pop: "pop .45s cubic-bezier(.2,.9,.3,1.2) both",
+        "screen-in": "screen-in .35s ease-out both",
+        "toast-in": "toast-in .25s ease-out both",
+      },
+    },
+  },
+  plugins: [animate],
+};
